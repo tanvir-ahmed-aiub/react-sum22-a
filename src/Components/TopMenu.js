@@ -3,8 +3,12 @@ import MenuItem from "./MenuItem";
 const TopMenu=()=>{
     return (
         <div>
-            <MenuItem url="/aiub" title="Aiub Home"/>
-            <MenuItem url="/portal" title="Aiub Portal"/>
+            <MenuItem url="/" title="Home"/>
+            <MenuItem url="/event" title="Click Event"/>
+            <MenuItem url="/paragraph" title="Paragraph"/>
+            <MenuItem url="/post" title="Post"/>
+            <MenuItem url="/create" title="Create Student"/>
+            <MenuItem url="/list/student" title="List"/>
         </div>
     )
 }

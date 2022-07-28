@@ -3,14 +3,23 @@ import Form from "./Form";
 import TopMenu from "./TopMenu";
 import EventHandle from "./EventHandle";
 import Post from "./Post";
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import CreateStudent from "./CreateStudent";
+import ListStudents from "./ListStudent";
 const Main=()=>{
     return (
         <div>
-            <TopMenu/>
-            <Form></Form>
-            <Paragraph/>
-            <EventHandle/>
-            <Post/>
+            <BrowserRouter>
+                <TopMenu/>
+                <Routes>
+                    <Route path="/" element={<Form/>}></Route>
+                    <Route path="/paragraph" element={<Paragraph/>}></Route>
+                    <Route path="/event" element={<EventHandle/>}></Route>
+                    <Route path="/post" element={<Post/>}></Route>
+                    <Route path="/create" element={<CreateStudent/>}></Route>
+                    <Route path="/list/student" element={<ListStudents/>}></Route>
+                </Routes>
+            </BrowserRouter>
         </div>
     )
 }
