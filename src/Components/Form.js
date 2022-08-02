@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 const Form =()=>{
     const[name,setName]=useState("");
     const[pass,setPass]=useState("");
@@ -7,9 +7,9 @@ const Form =()=>{
     const Submit=(event)=>{
         event.preventDefault();
         var data={uname:name, pass:pass};
-        axios.post("",data)
+        axiosConfig.post("/login",data)
         .then((rsp)=>{
-
+            localStorage.setItem('_authToken',rsp.data.token);
         },(err)=>{
             
         });

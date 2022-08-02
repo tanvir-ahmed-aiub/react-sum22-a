@@ -1,10 +1,10 @@
 import {useState,useEffect} from 'react';
-import axios from 'axios';
+import axiosConfig from './axiosConfig';
 import {Link} from 'react-router-dom';
 const ListStudents=()=>{
     const [students,setStudents] = useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/student/list")
+        axiosConfig.get("/student/list")
         .then((rsp)=>{
             setStudents(rsp.data);
             console.log(rsp);
@@ -13,11 +13,11 @@ const ListStudents=()=>{
         }) 
     },[]);
     const LoadData=()=>{
-        axios.get("http://localhost:8000/api/student/list")
+        axiosConfig.get("/student/list")
         .then((rsp)=>{
             setStudents(rsp.data);
         },(err)=>{
-
+            
         })
     }
     return(
@@ -26,7 +26,7 @@ const ListStudents=()=>{
             <ul>
                 {
                     students.map((st)=>(
-                        <li>{st.name}</li>
+                        <li key={st.id}>{st.name}</li>
                     ))
                 }
             </ul>
